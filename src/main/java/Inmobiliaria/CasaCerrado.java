@@ -25,6 +25,6 @@ public class CasaCerrado extends CasaUrbana{
 
     @Override
     void calcularPrecioVenta() {
-        this.precioVenta = area * valorUnitario.get("Casa cerrado");
+        this.precioVenta = area * valorUnitario.get("Casa en conjunto cerrado");
     }
 }
