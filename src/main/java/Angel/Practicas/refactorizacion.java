@@ -20,11 +20,11 @@ public class refactorizacion {
     }
 
     public class ContarCaracter {
-        public static float cuentaCaracteres(String texto, char buscar) {
+        public static int cuentaCaracteres(String texto, char buscar) {
             int cont = 0;
             for (int i = 0; i < texto.length(); i++) {
                 if (texto.charAt(i) ==  buscar) {
-                    cont += 1;
+                    cont ++;
                 }
             }
             return cont;
