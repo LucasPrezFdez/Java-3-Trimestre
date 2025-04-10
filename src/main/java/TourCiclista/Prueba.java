@@ -14,9 +14,15 @@ public class Prueba {
         ciclista2.setPosGeneral(2);
         ciclista3.setPosGeneral(3);
 
-        ciclista1.setTiempoAcumulado(365);
-        ciclista2.setTiempoAcumulado(370);
-        ciclista3.setTiempoAcumulado(380);
+//        ciclista1.setTiempoAcumulado(365);
+//        ciclista2.setTiempoAcumulado(370);
+//        ciclista3.setTiempoAcumulado(380);
+
+        for (Ciclista c : equipo1.listaCiclistas){
+            c.correr();
+        }
+
+        equipo1.ordenarTiempoEquipo();
 
         equipo1.calcularTotalTiempo();
         equipo1.listarEquipo();

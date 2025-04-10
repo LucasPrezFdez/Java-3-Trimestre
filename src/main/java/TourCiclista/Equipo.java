@@ -1,9 +1,10 @@
 package TourCiclista;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Equipo {
+public class Equipo{
 
     private String nombre;
     private double totalTiempo;
@@ -46,6 +47,12 @@ public class Equipo {
     void añadirCiclista(Ciclista ciclista){
         listaCiclistas.add(ciclista);
     }
+
+
+    public void ordenarTiempoEquipo() {
+        Collections.sort(listaCiclistas);
+    }
+
 
     void listarEquipo() {
         for (int i = 0; i< listaCiclistas.size();i++){

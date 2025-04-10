@@ -1,6 +1,8 @@
 package TourCiclista;
 
-public class Ciclista extends Equipo {
+import java.util.Random;
+
+public class Ciclista implements Comparable{
 
     protected int id;
     protected String nombre;
@@ -8,7 +10,6 @@ public class Ciclista extends Equipo {
     protected int posGeneral = 0;
 
     public Ciclista(String nombre, String pais, int identificador, String nombre1) {
-        super(nombre, pais);
         this.id = identificador;
         this.nombre = nombre1;
     }
@@ -21,14 +22,8 @@ public class Ciclista extends Equipo {
         this.id = id;
     }
 
-    @Override
     public String getNombre() {
         return nombre;
-    }
-
-    @Override
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public double getTiempoAcumulado() {
@@ -37,6 +32,12 @@ public class Ciclista extends Equipo {
 
     public void setTiempoAcumulado(double tiempoAcumulado) {
         this.tiempoAcumulado = tiempoAcumulado;
+    }
+
+    public void correr() {
+        Random random = new Random();
+        double t = random.nextDouble(50, 70);
+        this.setTiempoAcumulado(t);
     }
 
     protected String imprimirTipo() {
@@ -59,5 +60,12 @@ public class Ciclista extends Equipo {
                 ", tiempoAcumulado=" + tiempoAcumulado +
                 ", posGeneral=" + posGeneral +
                 "} " + super.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Ciclista c = (Ciclista) o;
+        return (int)(this.getTiempoAcumulado() - c.getTiempoAcumulado());
+
     }
 }
