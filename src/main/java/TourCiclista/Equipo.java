@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Equipo{
+public class Equipo {
 
     private String nombre;
     private double totalTiempo;
@@ -44,7 +44,15 @@ public class Equipo{
         this.totalTiempo = totalTiempo;
     }
 
-    void añadirCiclista(Ciclista ciclista){
+    public ArrayList<Ciclista> getListaCiclistas() {
+        return listaCiclistas;
+    }
+
+    public void setListaCiclistas(ArrayList<Ciclista> listaCiclistas) {
+        this.listaCiclistas = listaCiclistas;
+    }
+
+    void añadirCiclista(Ciclista ciclista) {
         listaCiclistas.add(ciclista);
     }
 
@@ -55,8 +63,8 @@ public class Equipo{
 
 
     void listarEquipo() {
-        for (int i = 0; i< listaCiclistas.size();i++){
-            Ciclista c = (Ciclista) listaCiclistas.get(i);
+        for (Ciclista c : getListaCiclistas()) {
+            System.out.println(c);
         }
     }
 
@@ -64,9 +72,9 @@ public class Equipo{
         Scanner sc = new Scanner(System.in);
         System.out.println("nombre del ciclista: ");
         String nombreCiclista = sc.nextLine();
-        for (int i = 0; i< listaCiclistas.size();i++){
+        for (int i = 0; i < listaCiclistas.size(); i++) {
             Ciclista c = (Ciclista) listaCiclistas.get(i);
-            if (c.getNombre().equals(nombreCiclista)){
+            if (c.getNombre().equals(nombreCiclista)) {
                 System.out.println("encontrado ---> ");
                 System.out.println(c.getNombre());
             }
@@ -76,8 +84,7 @@ public class Equipo{
     }
 
     void calcularTotalTiempo() {
-        for (int i = 0; i< listaCiclistas.size();i++){
-            Ciclista c = (Ciclista) listaCiclistas.get(i);
+        for (Ciclista c : getListaCiclistas()) {
             totalTiempo += c.getTiempoAcumulado();
         }
     }

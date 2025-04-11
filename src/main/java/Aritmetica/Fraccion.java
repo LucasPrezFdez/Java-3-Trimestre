@@ -6,11 +6,10 @@ public class Fraccion extends Numero{
     private Numero denominador;
 
 
-    public Fraccion (Numero nume, Numero deno){
-        sumar()
-        this.numerador = nume;
-        this.denominador = deno;
-
+    public Fraccion(int num, Numero numerador, Numero denominador) {
+        super(num);
+        this.numerador = numerador;
+        this.denominador = denominador;
     }
-
+    
 }
