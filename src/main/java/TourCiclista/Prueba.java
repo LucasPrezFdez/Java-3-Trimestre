@@ -6,9 +6,9 @@ public class Prueba {
     public static void main(String[] args) {
 
         Equipo equipo1 = new Equipo("Movistar", "Colombia");
-        Ciclista ciclista1 = new Ciclista("Juan", "Colombia", 1, "Ciclista 1");
-        Ciclista ciclista2 = new Ciclista("Pedro", "Colombia", 2, "Ciclista 2");
-        Ciclista ciclista3 = new Ciclista("Luis", "Colombia", 3, "Ciclista 3");
+        Ciclista ciclista1 = new Ciclista("Juan", "Colombia", 1);
+        Ciclista ciclista2 = new Ciclista("Pedro", "Colombia", 2);
+        Ciclista ciclista3 = new Ciclista("Luis", "Colombia", 3);
 
         equipo1.añadirCiclista(ciclista1);
         equipo1.añadirCiclista(ciclista2);
@@ -19,9 +19,9 @@ public class Prueba {
         ciclista3.setPosGeneral(3);
 
         Equipo equipo2 = new Equipo("Ineos", "Reino Unido");
-        Ciclista ciclista4 = new Ciclista("Carlos", "España", 4, "Ciclista 4");
-        Ciclista ciclista5 = new Ciclista("Miguel", "México", 5, "Ciclista 5");
-        Ciclista ciclista6 = new Ciclista("Andrés", "Argentina", 6, "Ciclista 6");
+        Ciclista ciclista4 = new Ciclista("Carlos", "España", 4);
+        Ciclista ciclista5 = new Ciclista("Miguel", "México", 5);
+        Ciclista ciclista6 = new Ciclista("Andrés", "Argentina", 6);
 
         equipo2.añadirCiclista(ciclista4);
         equipo2.añadirCiclista(ciclista5);

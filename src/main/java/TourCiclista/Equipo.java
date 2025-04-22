@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Equipo {
+public class Equipo implements Comparable {
 
     private String nombre;
     private double totalTiempo;
@@ -96,5 +96,12 @@ public class Equipo {
                 ", totalTiempo=" + totalTiempo +
                 ", pais='" + pais + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Equipo e = (Equipo) o;
+        return (int) (this.getTotalTiempo() - e.getTotalTiempo());
     }
 }

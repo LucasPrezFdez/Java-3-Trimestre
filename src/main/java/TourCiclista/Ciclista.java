@@ -9,9 +9,9 @@ public class Ciclista implements Comparable{
     protected double tiempoAcumulado = 0d;
     protected int posGeneral = 0;
 
-    public Ciclista(String nombre, String pais, int identificador, String nombre1) {
+    public Ciclista(String nombre, String pais, int identificador) {
         this.id = identificador;
-        this.nombre = nombre1;
+        this.nombre=nombre;
     }
 
     public int getId() {
