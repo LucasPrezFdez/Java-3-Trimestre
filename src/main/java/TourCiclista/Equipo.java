@@ -102,6 +102,6 @@ public class Equipo implements Comparable {
     @Override
     public int compareTo(Object o) {
         Equipo e = (Equipo) o;
-        return (int) (this.getTotalTiempo() - e.getTotalTiempo());
+        return Double.compare(getTotalTiempo(),e.getTotalTiempo());
     }
 }

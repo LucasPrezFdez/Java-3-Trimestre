@@ -59,13 +59,14 @@ public class Ciclista implements Comparable{
                 ", nombre='" + nombre + '\'' +
                 ", tiempoAcumulado=" + tiempoAcumulado +
                 ", posGeneral=" + posGeneral +
-                "} " + super.toString();
+                "} " ;
     }
 
     @Override
     public int compareTo(Object o) {
         Ciclista c = (Ciclista) o;
-        return (int)(this.getTiempoAcumulado() - c.getTiempoAcumulado());
+
+        return Double.compare(getTiempoAcumulado(),c.getTiempoAcumulado());
 
     }
 }

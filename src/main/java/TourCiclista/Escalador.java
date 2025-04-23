@@ -1,5 +1,7 @@
 package TourCiclista;
 
+import java.util.Random;
+
 public class Escalador extends Ciclista {
 
 
@@ -17,13 +19,16 @@ public class Escalador extends Ciclista {
     protected double getAceleracionPromedio() {
         return aceleracionPromedio;
     }
+
     protected void setAceleracionPromedio(double
                                                   aceleracionPromedio) {
         this.aceleracionPromedio = aceleracionPromedio;
     }
+
     protected double getGradoRampa() {
         return gradoRampa;
     }
+
     protected void setGradoRampa(double gradoRampa) {
         this.gradoRampa = gradoRampa;
     }
@@ -31,8 +36,9 @@ public class Escalador extends Ciclista {
 
     @Override
     public String toString() {
-        return super.toString()+"\nEscalador [aceleraciónPromedio=" + aceleracionPromedio + ", gradoRampa=" + gradoRampa + "]";
+        return super.toString() + "\nEscalador [aceleraciónPromedio=" + aceleracionPromedio + ", gradoRampa=" + gradoRampa + "]";
     }
+
     /**
      * Método que devuelve el tipo de ciclista
      * @return Un valor String con el texto “Es un escalador”
@@ -41,4 +47,14 @@ public class Escalador extends Ciclista {
         return "Es un escalador";
     }
 
+    // modificar el atributo tiempo
+
+
+    @Override
+    public void correr() {
+        Random random = new Random();
+        double tiempo = random.nextDouble(55, 75);
+        tiempo = tiempo - this.aceleracionPromedio * 1.2 - this.gradoRampa * 0.35;
+        this.setTiempoAcumulado(tiempo);
+    }
 }

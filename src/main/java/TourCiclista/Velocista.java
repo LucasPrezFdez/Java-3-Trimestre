@@ -41,4 +41,15 @@ public class Velocista extends Ciclista {
         return "Es un velocista";
     }
 
+    @Override
+    public void correr() {
+        super.correr();
+        double tiempo = this.getTiempoAcumulado();
+        tiempo = tiempo - this.potenciaPromedio*2 - this.velocidadPromedio*0.25;
+        this.setTiempoAcumulado(tiempo);
+    }
+
+
+
+
 }
