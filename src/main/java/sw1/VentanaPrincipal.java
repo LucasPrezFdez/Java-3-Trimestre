@@ -20,7 +20,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private JLabel nombre, apellidos, telefono, direccion;
     // Campos de ingreso de texto
     private JTextField campoNombre, campoApellidos, campoTelefono, campoDireccion;
-    private JButton anadir, eliminar, borrarLista; // Botones
+    private JButton anadir, eliminar, borrarLista, guardar, cargar; // Botones
     private JList<String> listaNombres; // Lista de personas
     private DefaultListModel<String> modelo; // Objeto que modela la lista
     private JScrollPane scrollLista; // Barra de desplazamiento vertical
@@ -32,7 +32,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         lista = new ListaPersonas(); // Crea la lista de personas
         inicio();
         setTitle("Personas"); // Establece el título de la ventana
-        setSize(270, 350); // Establece el tamaño de la ventana
+        setSize(270, 400); // Establece el tamaño de la ventana
         setLocationRelativeTo(null); // La ventana se posiciona en el centro de la pantalla
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar la aplicación al cerrar la ventana
         setResizable(false); // Establece que el tamaño de la ventana no se puede cambiar
@@ -76,13 +76,23 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
         // Establece el botón Eliminar persona
         eliminar = new JButton("Eliminar");
-        eliminar.setBounds(20, 280, 80, 23);
+        eliminar.setBounds(20, 280, 100, 23);
         eliminar.addActionListener(this);
 
         // Establece el botón Borrar lista
         borrarLista = new JButton("Borrar Lista");
-        borrarLista.setBounds(120, 280, 120, 23);
+        borrarLista.setBounds(130, 280, 100, 23);
         borrarLista.addActionListener(this);
+
+        // Boton guardar
+        guardar = new JButton("Guardar L");
+        guardar.setBounds(20, 320, 100, 23);
+        guardar.addActionListener(this);
+
+        // Boton cargar
+        cargar = new JButton("CARGAR L");
+        cargar.setBounds(130, 320, 120, 23);
+        cargar.addActionListener(this);
 
         // Establece la lista gráfica de personas
         listaNombres = new JList<>();
@@ -105,6 +115,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         contenedor.add(eliminar);
         contenedor.add(borrarLista);
         contenedor.add(scrollLista);
+        contenedor.add(guardar);
+        contenedor.add(cargar);
     }
 
     @Override
@@ -117,6 +129,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         }
         if (evento.getSource() == borrarLista) {
             borrarLista();
+        }
+        if (evento.getSource() == guardar) {
+            ListaPersonas.guardarArrayList(lista);
+        }
+        if (evento.getSource() == cargar) {
+            lista = ListaPersonas.cargarArrayList();
+
         }
     }
 
