@@ -9,7 +9,7 @@ public class VehiculoAereo extends Vehiculo {
 
     void acelerar(int velocidad) {
         int vel = this.velocidadActual + velocidad;
-        if (vel > velocidadMaxima) {
+        if (vel > this.velocidadMax) {
             System.out.println("Supera la velocidad permitida");
         } else {
             this.velocidadActual = vel;

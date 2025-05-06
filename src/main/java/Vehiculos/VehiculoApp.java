@@ -17,7 +17,7 @@ public class VehiculoApp {
         System.out.println("Acuatico --> velero: " + velero);
 
         System.out.println("Revoluciones del motor: " + velero.calcularRevolucionesMotor(100, 50));
-        velero.recomendarVelocidad(90);
+        velero.acelerar(90);
         System.out.println(velero);
 
         // ------------------------------------------------------------

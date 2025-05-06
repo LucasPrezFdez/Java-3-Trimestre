@@ -1,12 +1,11 @@
 package sw1;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ListaPersonas {
+public class ListaPersonas implements Serializable {
 
-    private static final String NOMBRE_FICHERO = "DATOD.OBJ";
+    private static final String NOMBRE_FICHERO = "DATOS.OBJ";
 
     ArrayList<Persona> listaPersonas;
 
@@ -39,15 +38,16 @@ public class ListaPersonas {
         }
     }
 
-    public static ArrayList<Persona> cargarArrayList() {
-        ArrayList<Persona> lista = null;
+    public static ListaPersonas cargarArrayList() {
+        ListaPersonas lista = null;
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(NOMBRE_FICHERO))) {
-            lista = (ArrayList<Persona>) ois.readObject();
-            System.out.println("ArrayList cargando correctamente desde " + NOMBRE_FICHERO);
+            lista = (ListaPersonas) ois.readObject();
+            System.out.println("ListaPersonas cargada correctamente desde " + NOMBRE_FICHERO);
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("Error al cargar el ArrayList: " + e.getMessage());
+            System.err.println("Error al cargar la ListaPersonas: " + e.getMessage());
         }
-        return new ListaPersonas(lista);
+        return lista;
     }
+
 
 }

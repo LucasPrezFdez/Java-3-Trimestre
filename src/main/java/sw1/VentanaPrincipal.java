@@ -135,8 +135,16 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         }
         if (evento.getSource() == cargar) {
             lista = ListaPersonas.cargarArrayList();
-
+            actualizarListaCargada();
         }
+    }
+    private void actualizarListaCargada() {
+        modelo.clear();
+        for (Persona p : lista.listaPersonas) {
+            String elemento = p.getNombre() + "-" + p.getApellidos() + "-" + p.getTelefono() + "-" + p.getDireccion();
+            modelo.addElement(elemento);
+        }
+        listaNombres.setModel(modelo);
     }
 
     private void anadirPersona() {
