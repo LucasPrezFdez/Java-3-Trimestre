@@ -1,66 +1,57 @@
 package sw2;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Notas {
 
-    double[] listaNotas; /* Atributo que identifica un array de notas de tipo double */
+    ArrayList<Double> listaNotas;
 
     public Notas() {
-        listaNotas = new double[5]; // Crea un array de 5 notas
+        listaNotas = new ArrayList<Double>();
     }
 
     double calcularPromedio() {
         double suma = 0;
-        for (int i = 0; i < listaNotas.length; i++) { // Se recorre el array
-            suma = suma + listaNotas[i]; // Suma las notas del array
+        for (double listaNota : listaNotas) {
+            suma += listaNota;
         }
-        return (suma / listaNotas.length);
+        return (suma / listaNotas.size());
     }
 
-//    double calcularPromedio() {
-//        return Arrays.stream(listaNotas).average().orElse(0.0);
-//    }
-
-    public double[] getListaNotas() {
+    public ArrayList<Double> getListaNotas() {
         return listaNotas;
     }
 
-    public void setListaNotas(double[] listaNotas) {
+    public void setListaNotas(ArrayList<Double> listaNotas) {
         this.listaNotas = listaNotas;
     }
 
     double calcularDesviacion() {
-        double prom = calcularPromedio(); /* Invoca el método para calcular el promedio */
+        double prom = calcularPromedio();
         double suma = 0;
-        for (int i = 0; i < listaNotas.length; i++) {
-            // Aplica fórmula para la sumatoria de elementos
-            suma += Math.pow(listaNotas[i] - prom, 2);
+        for (int i = 0; i < listaNotas.size(); i++) {
+            suma += Math.pow(listaNotas.get(i) - prom, 2);
         }
-        return Math.sqrt(suma / listaNotas.length); /* Retorna el cálculo final de la desviación */
+        return Math.sqrt(suma / listaNotas.size());
     }
 
     double calcularMenor() {
-        double menor = listaNotas[0]; /* Define una variable como la nota menor */
-        for (int i = 0; i < listaNotas.length; i++) { // Se recorre el array
-            if (listaNotas[i] < menor) {
-                menor = listaNotas[i];
+        double menor = listaNotas.getFirst();
+        for (Double listaNota : listaNotas) {
+            if (listaNota < menor) {
+                menor = listaNota;
             }
         }
         return menor;
     }
 
     double calcularMayor() {
-        double mayor = listaNotas[0]; /* Define una variable como la nota mayor */
-        for (int i = 0; i < listaNotas.length; i++) { // Se recorre el array
-            if (listaNotas[i] > mayor) {
-                /*
-                 * Si un elemento del array es mayor que el mayor actual, se actualiza su valor
-                 */
-                mayor = listaNotas[i];
+        double mayor = listaNotas.getFirst();
+        for (Double listaNota : listaNotas) {
+            if (listaNota > mayor) {
+                mayor = listaNota;
             }
         }
         return mayor;
     }
-
 }
