@@ -24,7 +24,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private JTextField campoNota1, campoNota2, campoNota3, campoNota4, campoNota5;
 
     // Botones para realizar cálculos y para borrar las notas
-    private JButton calcular, limpiar;
+    private JButton calcular, limpiar, eliminarNota1, eliminarNota2, eliminarNota3, eliminarNota4, eliminarNota5;
 
     /**
      * Constructor de la clase VentanaPrincipal
@@ -32,7 +32,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     public VentanaPrincipal() {
         inicio();
         setTitle("Notas"); // Establece el título de la ventana
-        setSize(280, 380); // Establece el tamaño de la ventana
+        setSize(350, 380); // Establece el tamaño de la ventana
         setLocationRelativeTo(null); // La ventana se posiciona en el centro de la pantalla
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Permite salir de la aplicación al cerrar
         setResizable(false); // Establece que el tamaño de la ventana no se puede cambiar
@@ -41,50 +41,75 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     /**
      * Método que crea la ventana con sus diferentes componentes gráficos
      */
-    private void inicio() {
-        contenedor = getContentPane(); // Obtiene el panel de contenidos de la ventana
-        contenedor.setLayout(null); // Establece que el contenedor no tiene un layout
 
-        // Configuración de etiquetas y campos de texto
+    private void inicio() {
+        contenedor = getContentPane();
+        contenedor.setLayout(null);
+
         nota1 = new JLabel("Nota 1:");
         nota1.setBounds(20, 20, 135, 23);
         contenedor.add(nota1);
 
         campoNota1 = new JTextField();
-        campoNota1.setBounds(105, 20, 135, 23);
+        campoNota1.setBounds(105, 20, 67, 23);
         contenedor.add(campoNota1);
+
+        eliminarNota1 = new JButton("Borrar");
+        eliminarNota1.setBounds(180, 20, 80, 23);
+        eliminarNota1.addActionListener(this);
+        contenedor.add(eliminarNota1);
 
         nota2 = new JLabel("Nota 2:");
         nota2.setBounds(20, 50, 135, 23);
         contenedor.add(nota2);
 
         campoNota2 = new JTextField();
-        campoNota2.setBounds(105, 50, 135, 23);
+        campoNota2.setBounds(105, 50, 67, 23);
         contenedor.add(campoNota2);
+
+        eliminarNota2 = new JButton("Borrar");
+        eliminarNota2.setBounds(180, 50, 80, 23);
+        eliminarNota2.addActionListener(this);
+        contenedor.add(eliminarNota2);
 
         nota3 = new JLabel("Nota 3:");
         nota3.setBounds(20, 80, 135, 23);
         contenedor.add(nota3);
 
         campoNota3 = new JTextField();
-        campoNota3.setBounds(105, 80, 135, 23);
+        campoNota3.setBounds(105, 80, 67, 23);
         contenedor.add(campoNota3);
+
+        eliminarNota3 = new JButton("Borrar");
+        eliminarNota3.setBounds(180, 80, 80, 23);
+        eliminarNota3.addActionListener(this);
+        contenedor.add(eliminarNota3);
 
         nota4 = new JLabel("Nota 4:");
         nota4.setBounds(20, 110, 135, 23);
         contenedor.add(nota4);
 
         campoNota4 = new JTextField();
-        campoNota4.setBounds(105, 110, 135, 23);
+        campoNota4.setBounds(105, 110, 67, 23);
         contenedor.add(campoNota4);
+
+        eliminarNota4 = new JButton("Borrar");
+        eliminarNota4.setBounds(180, 110, 80, 23);
+        eliminarNota4.addActionListener(this);
+        contenedor.add(eliminarNota4);
 
         nota5 = new JLabel("Nota 5:");
         nota5.setBounds(20, 140, 135, 23);
         contenedor.add(nota5);
 
         campoNota5 = new JTextField();
-        campoNota5.setBounds(105, 140, 135, 23);
+        campoNota5.setBounds(105, 140, 67, 23);
         contenedor.add(campoNota5);
+
+        eliminarNota5 = new JButton("Borrar");
+        eliminarNota5.setBounds(180, 140, 80, 23);
+        eliminarNota5.addActionListener(this);
+        contenedor.add(eliminarNota5);
 
         calcular = new JButton("Calcular");
         calcular.setBounds(20, 170, 100, 23);
@@ -116,9 +141,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == calcular) {
-            // Si se pulsa el botón Calcular
-            Notas notas = new Notas(); // Se crea un objeto Notas
-
+            Notas notas = new Notas();
             ArrayList<Double> uso = notas.getListaNotas();
 
             uso.add(Double.parseDouble(campoNota1.getText()));
@@ -129,9 +152,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
             notas.setListaNotas(uso);
 
-            // Se calculan los valores necesarios
-
-            // Se muestran los resultados en las etiquetas
             promedio.setText("Promedio = " + String.format("%.2f", notas.calcularPromedio()));
             desviacion.setText("Desviación estándar = " + String.format("%.2f", notas.calcularDesviacion()));
             mayor.setText("Nota mayor = " + String.valueOf(notas.calcularMayor()));
@@ -139,7 +159,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         }
 
         if (evento.getSource() == limpiar) {
-            // Si se pulsa el botón Limpiar
             campoNota1.setText("");
             campoNota2.setText("");
             campoNota3.setText("");
@@ -149,6 +168,26 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             desviacion.setText("Desviación = ");
             mayor.setText("Nota mayor = ");
             menor.setText("Nota menor = ");
+        }
+
+        if (evento.getSource() == eliminarNota1) {
+            campoNota1.setText("");
+        }
+
+        if (evento.getSource() == eliminarNota2) {
+            campoNota2.setText("");
+        }
+
+        if (evento.getSource() == eliminarNota3) {
+            campoNota3.setText("");
+        }
+
+        if (evento.getSource() == eliminarNota4) {
+            campoNota4.setText("");
+        }
+
+        if (evento.getSource() == eliminarNota5) {
+            campoNota5.setText("");
         }
     }
 
