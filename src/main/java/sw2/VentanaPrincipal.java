@@ -1,10 +1,13 @@
 package sw2;
 
+import sw1.Persona;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 
 /**
  * Esta clase denominada VentanaPrincipal define una interfaz gráfica
@@ -24,7 +27,14 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private JTextField campoNota1, campoNota2, campoNota3, campoNota4, campoNota5;
 
     // Botones para realizar cálculos y para borrar las notas
-    private JButton calcular, limpiar, eliminarNota1, eliminarNota2, eliminarNota3, eliminarNota4, eliminarNota5;
+    private JButton calcular, limpiar, eliminarNota1, eliminarNota2, eliminarNota3, eliminarNota4, eliminarNota5, añadir;
+
+    private JList lista;
+
+    private DefaultListModel<String> modelo;
+
+    private JScrollPane scrollLista; // Barra de desplazamiento vertical
+
 
     /**
      * Constructor de la clase VentanaPrincipal
@@ -32,7 +42,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     public VentanaPrincipal() {
         inicio();
         setTitle("Notas"); // Establece el título de la ventana
-        setSize(350, 380); // Establece el tamaño de la ventana
+        setSize(450, 380); // Establece el tamaño de la ventana
         setLocationRelativeTo(null); // La ventana se posiciona en el centro de la pantalla
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Permite salir de la aplicación al cerrar
         setResizable(false); // Establece que el tamaño de la ventana no se puede cambiar
@@ -136,6 +146,20 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         menor = new JLabel("Nota menor = ");
         menor.setBounds(20, 300, 200, 23);
         contenedor.add(menor);
+
+        añadir = new JButton("Añadir");
+        añadir.setBounds(280, 170, 100, 23);
+        añadir.addActionListener(this);
+        contenedor.add(añadir);
+
+
+        lista = new JList<>();
+        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        modelo = new DefaultListModel<>();
+        scrollLista = new JScrollPane(lista);
+        scrollLista.setBounds(160, 210, 250, 120);
+        scrollLista.setViewportView(lista);
+        contenedor.add(scrollLista);
     }
 
     @Override
@@ -153,9 +177,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             notas.setListaNotas(uso);
 
             promedio.setText("Promedio = " + String.format("%.2f", notas.calcularPromedio()));
-            desviacion.setText("Desviación estándar = " + String.format("%.2f", notas.calcularDesviacion()));
+            desviacion.setText("Desviación = " + String.format("%.2f", notas.calcularDesviacion()));
             mayor.setText("Nota mayor = " + String.valueOf(notas.calcularMayor()));
             menor.setText("Nota menor = " + String.valueOf(notas.calcularMenor()));
+
+        }
+
+        if (evento.getSource() == añadir) {
+            String nota = "Nota 1: " + campoNota1.getText() + " | Nota 2: " + campoNota2.getText() + " | Nota 3: " + campoNota3.getText() + " | Nota 4: " + campoNota4.getText() + " | Nota 5: " + campoNota5.getText();
+            modelo.addElement(nota);
+            lista.setModel(modelo);
+
         }
 
         if (evento.getSource() == limpiar) {
@@ -189,6 +221,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         if (evento.getSource() == eliminarNota5) {
             campoNota5.setText("");
         }
+
+
     }
 
 
