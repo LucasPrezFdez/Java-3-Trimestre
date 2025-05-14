@@ -18,7 +18,6 @@ public class VentanaCilindro extends JFrame implements ActionListener {
         setSize(280, 210);
         setLocationRelativeTo(null);
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void inicio() {
