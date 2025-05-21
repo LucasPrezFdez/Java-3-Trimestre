@@ -36,4 +36,13 @@ public class LineaPedido {
         this.producto = producto;
     }
 
+    @Override
+    public String toString() {
+        return "LineaPedido{" +
+                "identificador=" + identificador +
+                ", cantidad=" + cantidad +
+                ", producto=" + producto +
+                '}';
+    }
+
 }
