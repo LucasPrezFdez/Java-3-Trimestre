@@ -36,6 +36,10 @@ public class LineaPedido {
         this.producto = producto;
     }
 
+    public double precioTotal() {
+        return this.cantidad * this.producto.getPrecio();
+    }
+
     @Override
     public String toString() {
         return "LineaPedido{" +
