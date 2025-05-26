@@ -1,6 +1,7 @@
 package Asociacion;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -147,6 +148,14 @@ public class Departamento {
             System.out.println("No existen municipios con mas que esa poblacion");
         } else {
             encontrados.forEach(m -> System.out.println(m.getNombre()));
+        }
+    }
+
+    public void listaTodo() {
+        Iterator iterator = municipios.iterator();
+        while (iterator.hasNext()){
+            Municipio municipio = (Municipio) iterator.next();
+            System.out.println("nombre: "+municipio.getNombre() + " --> poblacion: " +municipio.getPoblacion());
         }
     }
 }
