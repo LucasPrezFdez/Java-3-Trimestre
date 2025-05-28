@@ -2,6 +2,6 @@ package Pagos;
 
 public enum TipoCargo {
 
-    DIRECTIVO, ESTATEGICO, OPERATIVO
+    DIRECTIVO, ESTRATEGICO, OPERATIVO
 
 }

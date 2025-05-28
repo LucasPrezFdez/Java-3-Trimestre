@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ListaEmpleados {
 
     public ArrayList<Empleado> lista; // Atributo que identifica un vector de empleadosInterfaz gráfica de usuario 527
-    public double totalNómina = 0; /* Atributo que identifica el total de
+    public double totalNomina = 0; /* Atributo que identifica el total de
 		la nómina de la empresa */
 
     /**
@@ -34,9 +34,9 @@ public class ListaEmpleados {
             // Obtiene un elemento de la lista de empleados
             Empleado e = (Empleado) lista.get(i);
             // Calcula el salario de un empleado y lo totaliza
-            totalNómina = totalNómina + e.calcularNómina();
+            totalNomina = totalNomina + e.calcularNomina();
         }
-        return totalNómina;
+        return totalNomina;
     }
 
     /**
@@ -56,9 +56,9 @@ public class ListaEmpleados {
             datos[i][1] = e.getApellidos();
 		/* Coloca el salario del empleado en la tercera columna de la
 		matriz */
-            datos[i][2] = Double.toString(e.calcularNómina());
+            datos[i][2] = Double.toString(e.calcularNomina());
             // Va acumulando el total de nómina mensual de la empresa
-            totalNómina = totalNómina + e.calcularNómina();
+            totalNomina = totalNomina + e.calcularNomina();
         }
         return datos;
     }

@@ -129,7 +129,7 @@ public class Empleado {
      * Método que calcula el salario mensual de un empleado
      * @return Salario mensual de un empleado
      */
-    public double calcularNómina() {
+    public double calcularNomina() {
         return ((salarioDía * díasTrabajados) + otrosIngresos -
                 pagosSalud - aportePensiones);
     }
