@@ -58,7 +58,7 @@ public class ListaEmpleados {
 		matriz */
             datos[i][2] = Double.toString(e.calcularNomina());
             // Va acumulando el total de nómina mensual de la empresa
-            totalNomina = totalNomina + e.calcularNomina();
+            totalNomina = e.calcularNomina();
         }
         return datos;
     }
