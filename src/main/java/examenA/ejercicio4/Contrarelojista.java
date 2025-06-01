@@ -1,5 +1,7 @@
 package examenA.ejercicio4;
 
+import java.util.Random;
+
 public class Contrarelojista extends Ciclista {
 
     // Atributo que define la velocidad máxima de un contrarrelojista
@@ -32,11 +34,15 @@ public class Contrarelojista extends Ciclista {
         return "Es un constrarrelojista";
     }
 
+
+
     @Override
-    public void correr() {
-        super.correr();
-        double tiempo =this.getTiempoAcumulado();
-        tiempo = tiempo -this.velocidadMáxima*0.33;
-        this.setTiempoAcumulado(tiempo);
+    public void calcularTiempoParcial() {
+        Random random = new Random();
+        double tiempoParcial = random.nextDouble(20, 40);
+        tiempoParcial += this.velocidadMáxima * 4;
+        setTiempoParcial(tiempoParcial);
+
+        this.tiempoAcumulado += tiempoParcial;
     }
 }

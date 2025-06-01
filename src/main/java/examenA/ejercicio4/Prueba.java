@@ -40,13 +40,7 @@ public class Prueba {
 //        ciclista2.setTiempoAcumulado(370);
 //        ciclista3.setTiempoAcumulado(380);
 
-        for (Ciclista c : equipo1.getListaCiclistas()) {
-            c.correr();
-        }
 
-        for (Ciclista c : equipo2.getListaCiclistas()) {
-            c.correr();
-        }
 
         System.out.println("SIN ORDENAR");
         // listado antes de ordenar

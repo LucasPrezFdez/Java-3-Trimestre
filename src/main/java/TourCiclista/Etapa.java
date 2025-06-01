@@ -95,6 +95,11 @@ public class Etapa {
 
     public void ordenaParticipantes() {
         Collections.sort(participantes);
+        int aux = participantes.size();
+        for (int i = 0; i < participantes.size(); i++) {
+            participantes.get(i).setPosGeneral(aux);
+            aux--;
+        }
     }
 
     public void ordenarEquipos() {

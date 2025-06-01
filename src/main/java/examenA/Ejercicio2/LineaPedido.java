@@ -29,8 +29,12 @@ public class LineaPedido {
         this.cantidad = cantidad;
     }
 
-    public int calcularSubtotalLineaPedido(){
+    public float calcularSubtotalLineaPedido(){
         return producto.getPrecio()*cantidad;
+    }
+
+    public Producto getProducto() {
+        return producto;
     }
 
     @Override

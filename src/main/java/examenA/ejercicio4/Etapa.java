@@ -17,6 +17,12 @@ public class Etapa {
         this.participantes = participantes;
     }
 
+    public Etapa(int numero, String nombre, ArrayList<Equipo> listaEquipos) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.listaEquipos = listaEquipos;
+    }
+
     void inicializaEtapa() {
 
 
@@ -43,7 +49,7 @@ public class Etapa {
         Equipo equipo3 = new Equipo("EF Education-EasyPost", "Estados Unidos");
         Ciclista velocista3 = new Velocista("Pascal Ackermann", "Bora-Hansgrohe", 93, 80, 76);
         Ciclista contrarrelojista3 = new Contrarelojista("Ethan Hayter", "INEOS Grenadiers", 96, 82);
-        Ciclista escalador3 = new Escalador("Esteban Chaves", "EF Education-EasyPost", 99, 87,0.4);
+        Ciclista escalador3 = new Escalador("Esteban Chaves", "EF Education-EasyPost", 99, 87, 0.4);
         equipo3.añadirCiclista(velocista3);
         equipo3.añadirCiclista(contrarrelojista3);
         equipo3.añadirCiclista(escalador3);
@@ -70,28 +76,39 @@ public class Etapa {
         inicializaEtapa();
     }
 
+    public ArrayList<Equipo> getListaEquipos() {
+        return listaEquipos;
+    }
+
+    public void setListaEquipos(ArrayList<Equipo> listaEquipos) {
+        this.listaEquipos = listaEquipos;
+    }
+
     void listarParticipantes() {
         System.out.println("CLASIFICACION GENERAL INDIVIDUAL");
         for (Ciclista c : participantes) {
             System.out.println(c);
         }
+        System.out.println();
     }
 
     void listarEquipos() {
-        System.out.println("CLASIFICACION GENERAL DE LA ETAPA");
+        System.out.println("CLASIFICACION GENERAL DE LA ETAPA " + nombre);
         for (Equipo e : listaEquipos) {
             System.out.println(e);
         }
+        System.out.println();
     }
 
-    public void disputarEtapa() {
-        for (Ciclista c : participantes) {
-            c.correr();
+    void listarEquiposFinal() {
+        System.out.println("LISTA FINAL DE EQUIPOS:");
+        for (Equipo equipo : listaEquipos) {
+            System.out.println(equipo);
         }
-        for (Equipo e : listaEquipos){
-            e.calcularTotalTiempo();
-        }
+        System.out.println();
     }
+
+
 
     public void ordenaParticipantes() {
         Collections.sort(participantes);
@@ -109,6 +126,17 @@ public class Etapa {
                 ", nombre='" + nombre + '\'' +
                 ", participantes=" + participantes +
                 '}';
+    }
+
+    public void simularEtapa() {
+        for (Equipo equipo : listaEquipos) {
+            for (Ciclista ciclista : equipo.listaCiclistas) {
+
+                ciclista.calcularTiempoParcial();
+                ciclista.sumaTotal += ciclista.getTiempoAcumulado();
+            }
+        }
+
     }
 }
 /*Equipo equipo1 = new Equipo("Sky", "Estados Unidos");

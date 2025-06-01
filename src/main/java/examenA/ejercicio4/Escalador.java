@@ -50,18 +50,16 @@ public class Escalador extends Ciclista {
     // modificar el atributo tiempo
 
 
-    @Override
-    public void correr() {
-        Random random = new Random();
-        double tiempo = random.nextDouble(55, 75);
-        tiempo = tiempo - this.aceleracionPromedio * 1.2 - this.gradoRampa * 0.35;
-        this.setTiempoAcumulado(tiempo);
-    }
+
 
     @Override
     public void calcularTiempoParcial() {
         Random random = new Random();
         double tiempoParcial = random.nextDouble(20, 40);
-        this.tiempoAcumulado += tiempoParcial + (3 * this.aceleracionPromedio) - (5 * this.gradoRampa); // Suma 3 por aceleración promedio y resta 5 por grado rampa
+        tiempoParcial += this.aceleracionPromedio * 3;
+        tiempoParcial -= this.gradoRampa * 5;
+        setTiempoParcial(tiempoParcial);
+
+        this.tiempoAcumulado += tiempoParcial;
     }
 }

@@ -5,9 +5,9 @@ public class Producto {
     private String nombre;
     private int identificador;
     private String descripcion;
-    private int precio;
+    private float precio;
 
-    public Producto(String nombre, int identificador, String descripcion, int precio) {
+    public Producto(String nombre, int identificador, String descripcion, float precio) {
         this.nombre = nombre;
         this.identificador = identificador;
         this.descripcion = descripcion;
@@ -38,7 +38,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 

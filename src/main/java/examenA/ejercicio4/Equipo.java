@@ -8,6 +8,7 @@ public class Equipo implements Comparable {
 
     private String nombre;
     private double totalTiempo;
+    private double tiempo;
     private String pais;
 
     ArrayList<Ciclista> listaCiclistas;
@@ -83,9 +84,25 @@ public class Equipo implements Comparable {
 
     }
 
+    void calcularTiempo(){
+
+        for (Ciclista c : getListaCiclistas()) {
+            tiempo = c.getTiempoAcumulado();
+        }
+
+    }
     void calcularTotalTiempo() {
         for (Ciclista c : getListaCiclistas()) {
             totalTiempo += c.getTiempoAcumulado();
+        }
+    }
+
+
+    void posGeneral() {
+        int aux = 0;
+        for (Ciclista ciclista : listaCiclistas){
+            ciclista.setPosGeneral(aux);
+            aux++;
         }
     }
 
@@ -94,10 +111,11 @@ public class Equipo implements Comparable {
         return "Equipo{" +
                 "nombre='" + nombre + '\'' +
                 ", totalTiempo=" + totalTiempo +
+                ", tiempo=" + tiempo +
                 ", pais='" + pais + '\'' +
+                ", listaCiclistas=" + listaCiclistas +
                 '}';
     }
-
 
     @Override
     public int compareTo(Object o) {

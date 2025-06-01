@@ -1,0 +1,6 @@
+Orden [id = 123]
+Items de la factura
+[LineaPedido{identificador=1, cantidad=3, producto=Producto{nombre='Carpeta', identificador=1, descripcion='Carpeta anillada metalica', precio=140.99818}}, LineaPedido{identificador=2, cantidad=1, producto=Producto{nombre='Lapiz', identificador=2, descripcion='Lapiz de grafito', precio=165.20114}}, LineaPedido{identificador=3, cantidad=3, producto=Producto{nombre='Boligrafo', identificador=3, descripcion='Boligrafo azul', precio=22.410152}}, LineaPedido{identificador=4, cantidad=2, producto=Producto{nombre='Goma', identificador=4, descripcion='Goma de borrar', precio=17.735546}}]
+Total orden = € 690.8972549438477
+--------------------------------------------------
+Total factura con IVA (17%): €808.3497882843018

@@ -9,7 +9,6 @@ public class PruebaEtapa {
 
         System.out.println(etapa);
 
-        etapa.disputarEtapa();
 
         etapa.ordenaParticipantes();
         etapa.ordenarEquipos();

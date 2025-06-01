@@ -8,10 +8,20 @@ public class Ciclista implements Comparable{
     protected String nombre;
     protected double tiempoAcumulado = 0d;
     protected int posGeneral = 0;
+    public double sumaTotal = 0;
+    double tiempoParcial;
 
     public Ciclista(String nombre, String pais, int identificador) {
         this.id = identificador;
         this.nombre=nombre;
+    }
+
+    public double getSumaTotal() {
+        return sumaTotal;
+    }
+
+    public void setSumaTotal(double sumaTotal) {
+        this.sumaTotal = sumaTotal;
     }
 
     public int getId() {
@@ -34,11 +44,15 @@ public class Ciclista implements Comparable{
         this.tiempoAcumulado = tiempoAcumulado;
     }
 
-    public void correr() {
-        Random random = new Random();
-        double t = random.nextDouble(50, 70);
-        this.setTiempoAcumulado(t);
+    public double getTiempoParcial() {
+        return tiempoParcial;
     }
+
+    public void setTiempoParcial(double tiempoParcial) {
+        this.tiempoParcial = tiempoParcial;
+    }
+
+
 
     protected String imprimirTipo() {
         return "Ciclista Generico";
@@ -57,6 +71,7 @@ public class Ciclista implements Comparable{
         return "Ciclista{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
+                ", timepo='" + tiempoParcial +
                 ", tiempoAcumulado=" + tiempoAcumulado +
                 ", posGeneral=" + posGeneral +
                 "} " ;
@@ -72,7 +87,8 @@ public class Ciclista implements Comparable{
 
     public void calcularTiempoParcial() {
         Random random = new Random();
-        double tiempoParcial = random.nextDouble(20, 40);
+        tiempoParcial = random.nextDouble(20, 40);
+        setTiempoParcial(tiempoParcial);
         this.tiempoAcumulado += tiempoParcial;
     }
 }
