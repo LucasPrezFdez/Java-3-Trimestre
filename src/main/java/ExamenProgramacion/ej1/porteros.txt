@@ -1,0 +1,2 @@
+Portero{golesRecividos=5, penalesParados=6} Jugador{nombre='luis', demarcacion='nose', partidosJugados=10, golesMarcados=0, tarjetasAmarillas=0, tarjetasRojas=0, identificador=5}
+---------------------------------
